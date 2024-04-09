@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Cliente;
-use Illuminate\Http\Client\Request;
+use Illuminate\Http\Request;
 
 class ClienteController extends Controller{
     public function index() {
@@ -30,6 +30,9 @@ class ClienteController extends Controller{
             $nomeImagem = time() . '.' . $imagem->getClientOriginalExtension();
             $caminhoImagem = $imagem->storeAs('imagens/cliente', $nomeImagem, 'public');
             $clienteData['imagem'] = $caminhoImagem;
+        }
+        else{
+            $clienteData['imagem'] = 'Erro ao capturar caminho da imagem';
         }
         $cliente = Cliente::create($clienteData);
         return response()->json(['cliente' => $cliente], 201);
