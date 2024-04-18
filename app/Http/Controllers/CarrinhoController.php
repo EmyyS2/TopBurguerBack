@@ -64,20 +64,5 @@ class CarrinhoController extends Controller
                 "status"=>false,
                 "message"=>"Pedido não encontrado"
             ], 400);
-        
-        $carrinho =  Item_carrinho::create([
-
-
-            'quantidade' => $request->quantidade,
-            'pedidos_id' => $request->pedidos_id,
-            'produtos_id' => $request->produtos_id,
-            'valor_unitario' => $request->valor_unitario,
-        ]);
-        return response()->json([
-            "status" => true,
-            "message" => "pedido feito com sucesso",
-            "data" => $carrinho
-
-        ], 200);
-}  
+        }
 } 

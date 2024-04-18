@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\CarrinhoController;
 use App\Http\Controllers\ClienteController;
 use App\Http\Controllers\ProdutoController;
 use Illuminate\Http\Request;
@@ -13,3 +14,7 @@ Route::get('/produtos',[ProdutoController::class, 'retornarTodos']);
 
 Route::get('/clientes', [ClienteController::class, 'index']);
 Route::post('/clientes', [ClienteController::class, 'store']);
+
+//Carrinho
+Route::get('/carrinho',[CarrinhoController::class, 'index']);
+Route::
