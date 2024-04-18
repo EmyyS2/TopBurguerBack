@@ -27,7 +27,7 @@ class ProdutoRequest extends FormRequest
         return [
             'nome' => 'required|max:80|min:5|unique:servicos,nome',
             'preco' => 'required|decimal:2',
-            'ingrediente' => 'required|max:200|min:10',
+            'ingredientes' => 'required|max:200|min:10',
             'imagem' => 'required',
             
         ];
@@ -49,9 +49,9 @@ class ProdutoRequest extends FormRequest
                 'nome.unique'=>'O nome já foi cadastrado',
                 'preco.required'=>'O campo preço é obrigátorio',
                 'preco.decimal'=>'O campo preço só é permitido números decimais',
-                'ingrediente.required'=>'O campo descrição é obrigatório',
-                'ingrediente.max'=>'O campo descriçao deve ter no maximo 200 caracteres',
-                'ingrediente.min'=>'O campo descrição deve ter no mínimo 10 caracteres',
+                'ingredientes.required'=>'O campo descrição é obrigatório',
+                'ingredientes.max'=>'O campo descriçao deve ter no maximo 200 caracteres',
+                'ingredientes.min'=>'O campo descrição deve ter no mínimo 10 caracteres',
                 'iamgem.required' => 'O campo imagem é obrigatório'
             ];
     }
