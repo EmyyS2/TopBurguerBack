@@ -24,25 +24,30 @@ class CarrinhoRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'clientes_id'=> 'required',
-            'produto_id'=> 'required',
-            'status'=>'required|max:100|min:50',
-            'total'=>'required|decimal:2'
+            'clientes_id' => 'required',
+            'produto_id' => 'required',
+            'status' => 'required|max:100|min:50',
+            'total' => 'required|decimal:2'
         ];
     }
-        public function failedValidation(Validator $validator)
-        {
-            throw new HttpResponseException(response()->json([
-                'success' => false,
-                'error' => $validator->errors()
-            ]));
-        }
-        public function messages(){
-    
-            return[
-                'clientes_id.required' => 'o cliente é obrigatorio',
-                'produto_id.required' => 'o produto é obrigatorio',
-                'status.required'=>'o status'
-            ];
-            }
-        }
+    public function failedValidation(Validator $validator)
+    {
+        throw new HttpResponseException(response()->json([
+            'success' => false,
+            'error' => $validator->errors()
+        ]));
+    }
+    public function messages()
+    {
+
+        return [
+            'clientes_id.required' => 'o cliente é obrigatorio',
+            'produto_id.required' => 'o produto é obrigatorio',
+            'status.required' => 'o status é obrigatorio',
+            'status.max' => 'o campo status deve contar no maximo 100 caracteres',
+            'staus.min' => 'o campo status deve contar no minimo 50 caracteres',
+            'total.required' => 'Preencha o campo total',
+            'total.decimal' => 'O campo total só aceita numeros decimais',
+        ];
+    }
+}
